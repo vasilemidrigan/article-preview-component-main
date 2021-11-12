@@ -1,0 +1,129 @@
+/* Variables */
+:root {
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --desaturated-dark-blue: hsl(214, 17%, 51%);
+  --grayish-blue: hsl(212, 23%, 69%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+  --white-color: hsl(0, 0%, 100%);
+}
+
+/* General Styles */
+* {
+  font-family: Manrope, sans-serif;
+  font-size: 13px;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: var(--very-dark-grayish-blue);
+}
+body {
+  background-color: var(--light-grayish-blue);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+span {
+  font-weight: 700;
+  font-size: 1.2em;
+}
+/* Mobile version 375px */
+/* Active state */
+.active {
+  background-color: var(--desaturated-dark-blue);
+  transform: translate();
+}
+/* Hidden state */
+.hidden {
+  display: none;
+}
+/* divs with display: flex */
+.content,
+.share,
+.right {
+  display: flex;
+}
+/* Main div - Wrapper */
+.wrapper {
+  background-color: var(--white-color);
+  max-width: 320px;
+  height: 75%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+/* Image div */
+.img {
+  height: 43%;
+}
+.img img {
+  width: 100%;
+  height: 100%;
+}
+/* Content div */
+.content {
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  height: 43%;
+}
+.content-bottom {
+  margin-top: 10px;
+}
+/* Share div */
+.share {
+  height: 15%;
+  justify-content: space-evenly;
+  align-items: center;
+  transition: background-color 300ms ease-in;
+}
+.left img {
+  height: 40px;
+  border-radius: 50%;
+}
+.right {
+  background-color: var(--light-grayish-blue);
+  width: 40px;
+  height: 55%;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+}
+.right:hover {
+  cursor: pointer;
+}
+.right--active {
+  background-color: var(--grayish-blue);
+}
+/* Share text */
+.text-share {
+  font-size: 1.1em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: hsl(212, 23%, 69%);
+}
+.text-share:hover {
+  cursor: pointer;
+}
+/* Social networks logos */
+.facebook-logo,
+.twitter-logo,
+.pinterest-logo {
+  margin: 5px;
+}
+.facebook-logo:hover,
+.twitter-logo:hover,
+.pinterest-logo:hover {
+  cursor: pointer;
+}
+/* Attribution div (absolute positioned) */
+.attribution {
+  position: absolute;
+  bottom: 0;
+  width: 90%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+/* Desktop version 1440px */
