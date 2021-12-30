@@ -7,7 +7,9 @@
   --white-color: hsl(0, 0%, 100%);
 }
 
-/* General Styles */
+/* ===================================================================== */
+/* ============================ General Styles ========================= */
+/* ===================================================================== */
 * {
   font-family: Manrope, sans-serif;
   font-size: 13px;
@@ -24,13 +26,21 @@ body {
   justify-content: center;
   align-items: center;
   width: 100vw;
+  min-width: 430px;
   height: 100vh;
+  min-height: 650px;
+}
+/* Divs with display: flex */
+.content,
+.share,
+.right {
+  display: flex;
 }
 span {
   font-weight: 700;
   font-size: 1.2em;
 }
-/* Mobile version 375px */
+/* States */
 /* Active state */
 .active {
   background-color: var(--desaturated-dark-blue);
@@ -40,12 +50,9 @@ span {
 .hidden {
   display: none;
 }
-/* divs with display: flex */
-.content,
-.share,
-.right {
-  display: flex;
-}
+/* ===================================================================== */
+/* ============================ Mobile version ========================= */
+/* ===================================================================== */
 /* Main div - Wrapper */
 .wrapper {
   background-color: var(--white-color);
@@ -54,7 +61,7 @@ span {
   border-radius: 10px;
   overflow: hidden;
 }
-/* Image div */
+/* Image */
 .img {
   height: 43%;
 }
@@ -92,7 +99,7 @@ span {
   align-items: center;
 }
 .right:hover {
-  cursor: pointer;
+  background-color: rgb(229, 239, 250);
 }
 .right--active {
   background-color: var(--grayish-blue);
@@ -104,18 +111,18 @@ span {
   text-transform: uppercase;
   color: hsl(212, 23%, 69%);
 }
-.text-share:hover {
-  cursor: pointer;
-}
 /* Social networks logos */
 .facebook-logo,
 .twitter-logo,
 .pinterest-logo {
   margin: 5px;
 }
+/* Hover state - cursor: pointer */
 .facebook-logo:hover,
 .twitter-logo:hover,
-.pinterest-logo:hover {
+.pinterest-logo:hover,
+.text-share:hover,
+.right:hover {
   cursor: pointer;
 }
 /* Attribution div (absolute positioned) */
@@ -123,7 +130,97 @@ span {
   position: absolute;
   bottom: 0;
   width: 90%;
+  min-width: 250px;
   text-align: center;
   margin-bottom: 20px;
 }
-/* Desktop version 1440px */
+/* ===================================================================== */
+/* ================== Media Queries for minimum 800px wide ============= */
+/* ===================================================================== */
+@media (min-width: 800px) {
+  /* Reseting all the properties to default */
+  .wrapper,
+  .img,
+  .content {
+    all: unset;
+  }
+  /* Body */
+  body {
+    flex-direction: unset;
+  }
+  /* Wrapper */
+  .wrapper {
+    display: grid;
+    grid-template: repeat(1fr, 2) / repeat(1fr, 2);
+    grid-template-areas:
+      "img content-area"
+      "img share";
+    background-color: var(--white-color);
+    width: 700px;
+    min-height: 300px;
+    max-height: 400px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  /* Image */
+  .img {
+    grid-area: img;
+  }
+  /* Content */
+  .content {
+    grid-area: content-area;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px;
+  }
+  /* Share */
+  .share {
+    transition: color 300ms ease-in;
+    grid-area: share;
+    height: 100%;
+  }
+  /* ======================================================================= */
+  /* =================== Share element for 800px wide and more ============= */
+  /* ======================================================================= */
+  /* Wrapper Oveflow */
+  .wrapper-overflow {
+    position: relative;
+  }
+  /* Float Share Block */
+  .float-share-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 100px;
+    right: -55px;
+    height: 55px;
+    width: 265px;
+    background-color: var(--very-dark-grayish-blue);
+  }
+  /* Triangle for .share element */
+  .triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 30px solid var(--very-dark-grayish-blue);
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  /* Text share desktop version */
+  .text-share-desk__active {
+    margin-right: 20px;
+  }
+  /* ===================================================================== */
+  /* Attribution */
+  .attribution {
+    bottom: 80px;
+    width: max-content;
+  }
+}
